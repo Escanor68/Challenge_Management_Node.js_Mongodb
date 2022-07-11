@@ -1,0 +1,24 @@
+paths:
+  /api/comision/unicaComision:
+    get:
+      operationId: AreThereOnlyCourse
+      tags:
+        - Comision
+      summary: Are there only course?
+      security:
+        - ApiKey: []
+          ApiSecret: []
+      requestBody:
+        description: Know if there is a single commission
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AreThereOnlyCourse"
+      responses:
+        "200":
+          $ref: "#/components/responses/SuccessAreThereOnlyCourseResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "500":
+          $ref: "#/components/responses/InternalError"

@@ -1,0 +1,24 @@
+paths:
+  /api/comision/mejoresEstudiantes:
+    get:
+      operationId: TopStudents
+      tags:
+        - Comision
+      summary: The Top Students
+      security:
+        - ApiKey: []
+          ApiSecret: []
+      requestBody:
+        description: The Top Students
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TopStudents"
+      responses:
+        "200":
+          $ref: "#/components/responses/SuccessTopStudentsResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "500":
+          $ref: "#/components/responses/InternalError"

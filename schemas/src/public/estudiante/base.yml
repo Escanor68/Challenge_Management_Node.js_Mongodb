@@ -1,0 +1,90 @@
+components:
+  schemas:
+    Estudiante:
+      description: Un estudiante
+      type: object
+      properties:
+        id:
+          $ref: "#/components/schemas/id"
+        email:
+          description: email del estudiante
+          type: string
+          example: "ricardo.grebosz@mi.unc.edu.ar"
+        contraseña:
+          description: password de un estudiante
+          type: string
+          example: "123456"
+        materias:
+          description: nombres de las materias
+          type: array
+          example: ["Matematica Discreta 2", "Algoritmos"]
+
+        status:
+          $ref: "#/components/schemas/status"
+
+    LoginEstudiante:
+      description: Logeo de un Estudiante.
+      type: object
+      properties:
+        email:
+          $ref: "#/components/schemas/Estudiante/properties/email"
+        contraseña:
+          $ref: "#/components/schemas/Estudiante/properties/contraseña"
+
+      required:
+        - email
+        - contraseña
+
+    EnrollEstudiante:
+      description: Inscripción de un Estudiante a una materia.
+      type: object
+      properties:
+        materia:
+          description: Id del materia
+          type: string
+          example: "627193832b1bd51082177a88"
+        email:
+          $ref: "#/components/schemas/Estudiante/properties/email"
+
+      required:
+        - email
+        - materia
+
+    ForGot:
+      description: Olvido de contraseña
+      type: object
+      properties:
+        email:
+          $ref: "#/components/schemas/Estudiante/properties/email"
+
+      required:
+        - email
+
+    ResetPassword:
+      description: Modificacion de contraseña
+      type: object
+      properties:
+        password:
+          $ref: "#/components/schemas/Estudiante/properties/contraseña"
+        token:
+          description: token de recuperacion
+          type: string
+          example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjY4NjkxNjlhMWU1N2I0MzcyOTFjNmMiLCJlbWFpbCI6InJpY2FyZG8uZ3JlYm9zekBtaS51bmMuZWR1LmFyIiwibmFtZSI6IlJpY2FyZG8gR3JlYm9zeiIsImNvbnRyYXNlw7FhSGFzaCI6IiQyYSQxMiRxSmQ3TlozblAyS0JtemZZeEo1SVguckxxUjE4VmhhT3Q2L0I3b2ZSZVQzTHAwSnBrNC5wMiIsImlhdCI6MTY1MzA3NTU4NSwiZXhwIjoxNjUzMTA0Mzg1fQ.nAIqEVZjxGEL7ZTvWwUZ-_aLRZH48sFW2MMJ0om2Faw"
+
+    CreateStudent:
+      description: Crear un estudiante en la base de datos
+      type: object
+      properties:
+          email:
+            $ref: "#/components/schemas/Estudiante/properties/email"
+          contraseña:
+            $ref: "#/components/schemas/Estudiante/properties/contraseña"
+          name:
+            description: nombre del estudiante
+            type: string
+            example: "Timoteo Grebosz"
+
+      required:
+        - email
+        - name
+        - contraseña

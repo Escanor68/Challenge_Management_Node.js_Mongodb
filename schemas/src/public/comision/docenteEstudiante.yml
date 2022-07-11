@@ -1,0 +1,24 @@
+paths:
+  /api/comision/docenteEstudiante:
+    get:
+      operationId: ShareDocenteEstudianteInCourse
+      tags:
+        - Comision
+      summary: Query if a student studies with a teacher
+      security:
+        - ApiKey: []
+          ApiSecret: []
+      requestBody:
+        description: Query if a student studies with a teacher
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ShareDocenteEstudianteInCourse"
+      responses:
+        "200":
+          $ref: "#/components/responses/SuccessQueryDocenteEstudianteResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "500":
+          $ref: "#/components/responses/InternalError"

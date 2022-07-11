@@ -1,0 +1,77 @@
+components:
+  schemas:
+    Comision:
+      description: Una Comision
+      type: object
+      properties:
+        id:
+          $ref: "#/components/schemas/id"
+        materia:
+          description: Una materia
+          type: string
+          example: "Paradigmas"
+        numero:
+          description: Comision de la materia
+          type: number
+          example: 1
+        docentes:
+          description: docentes de una materias
+          type: array
+          example: [{"_id" : "62693a3f53a0924e3915db02", "dni" : 41153418, "name" : "Ricardo Grebosz", "materias" : ["Algoritmo"]}]
+        calificaciones:
+          description: Un listado de las calificaciones de los estudiantes
+          type: array
+          example: [9, "Ricardo Grebosz", 5, "Timoteo Grebosz"]
+        horarios:
+          description: horarios de la materia en cuestion
+          type: object
+          properties:
+            lunes:
+              description: día de ejemplo
+              type: string
+              example: "18.30 a 20.00"
+        estudiantesInscriptos:
+          description: listado de los estuidiantes de la carrera
+          type: array
+          example: [{"_id": "627193832b1bd51082177a88", "email" : "abariciartg@gmail.com", "name" : "Timoteo Grebosz", "contraseñaHash" : "$2a$12$qJd7NZ3nP2KBmzfYxJ5IX.rLqR18VhaOt6/B7ofReT3Lp0Jpk4.p2"}]
+
+        status:
+          $ref: "#/components/schemas/status"
+
+    ShareDocenteEstudianteInCourse:
+      description: Saber si se encuentra el par docente con estudiante
+      type: object
+      properties:
+        docente:
+          description: Id del docente
+          type: string
+          example: "62693a3f53a0924e3915db02"
+        estudiante:
+          description: Id del estudiante
+          type: string
+          example: "627193832b1bd51082177a88"
+
+      required:
+        - docente
+        - estudiante
+
+    HowManyTeachersForStudents:
+      description: Saber si el numero de profesores es suficiente para la cantidad de estudiantes, no recibe nada como parametro porque se fija en todas las comisiones
+
+    TopStudents:
+      description: Lista de los mejores estudiantes
+
+    TheStudentWithTheMostApprovedCourses:
+      description: El estudiante con mas cursos aprobados
+      
+    AreThereOnlyCourse:
+      description: Saber si hay una unica comision
+
+    ListOfStudentsWithTheTeacher:
+      description: Saber el listado de alumnos que tiene un profesor
+      type: object
+      properties:
+        docente:
+          description: Id del docente
+          type: string
+          example: "62693a3f53a0924e3915db02"

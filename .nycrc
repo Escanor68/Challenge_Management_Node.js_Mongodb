@@ -1,0 +1,24 @@
+{
+  "include":[
+    "src/"
+  ],
+  "exclude": [
+    "class/",
+    "src/routes/routes.js",
+    "src/structs/",
+    "src/structures",
+    "src/routes/index.js",
+    "src/routes/comicion/index.js",
+    "src/routes/docente/index.js",
+    "src/routes/estudiante/index.js",
+    "src/routes/docente/src/login.js"
+  ],
+  "extension": [
+    ".js"
+  ],
+  "cache": true,
+  "all": true,
+  "default-excludes": true,
+  "check-coverage": true,
+  "skip-full": true
+}

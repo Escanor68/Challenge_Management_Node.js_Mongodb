@@ -1,0 +1,24 @@
+paths:
+  /api/comision/cuantosDocentesParaEstudiantes:
+    get:
+      operationId: HowManyTeachersForStudents
+      tags:
+        - Comision
+      summary: Query if a How many teachers for students?
+      security:
+        - ApiKey: []
+          ApiSecret: []
+      requestBody:
+        description: Query if a student studies with a teacher
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/HowManyTeachersForStudents"
+      responses:
+        "200":
+          $ref: "#/components/responses/SuccessHowManyTeachersForStudentsResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "500":
+          $ref: "#/components/responses/InternalError"

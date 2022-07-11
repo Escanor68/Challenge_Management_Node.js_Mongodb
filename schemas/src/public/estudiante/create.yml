@@ -1,0 +1,24 @@
+paths:
+  /api/estudiante/create:
+    post:
+      operationId: createstudent
+      tags:
+        - Student
+      summary: Create a products
+      security:
+        - ApiKey: []
+          ApiSecret: []
+      requestBody:
+        description: Create a student in database
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateStudent"
+      responses:
+        "200":
+          $ref: "#/components/responses/SuccessCreateStudentResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "500":
+          $ref: "#/components/responses/InternalError"

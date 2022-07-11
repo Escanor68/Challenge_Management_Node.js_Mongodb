@@ -1,0 +1,24 @@
+paths:
+  /api/estudiante/login:
+    post:
+      operationId: loginstudent
+      tags:
+        - Estudiante
+      summary: Login a Estudiante
+      security:
+        - ApiKey: []
+          ApiSecret: []
+      requestBody:
+        description: Login a Estudiante in database
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginEstudiante"
+      responses:
+        "200":
+          $ref: "#/components/responses/SuccessLoginEstudianteResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "500":
+          $ref: "#/components/responses/InternalError"

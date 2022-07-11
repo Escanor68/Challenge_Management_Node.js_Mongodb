@@ -1,0 +1,24 @@
+paths:
+  /api/estudiante/enroll:
+    post:
+      operationId: enrollstudent
+      tags:
+        - Estudiante
+      summary: Enroll a Estudiante
+      security:
+        - ApiKey: []
+          ApiSecret: []
+      requestBody:
+        description: Enroll a Estudiante in database
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EnrollEstudiante"
+      responses:
+        "200":
+          $ref: "#/components/responses/SuccessEnrollEstudianteResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "500":
+          $ref: "#/components/responses/InternalError"

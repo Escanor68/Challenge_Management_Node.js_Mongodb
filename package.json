@@ -1,0 +1,57 @@
+{
+  "name": "challenge_management_node.js_mongodb",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">MoodTechnology Only Backend Challenge</h1>",
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "mocha --exit -R nyan --recursive tests/",
+    "demon": "nodemon server.js",
+    "test-watch": "npm test -- -w",
+    "coverage": "nyc npm test",
+    "api-schema-builder": "npx @janiscommerce/api-schema-builder",
+    "test-schema": "npx redoc-cli serve schemas/public.json",
+    "generate-html": "npx redoc-cli bundle schemas/public.json schemas/; mv redoc-static.html src/public/",
+    "lint": "eslint ./src ./tests",
+    "doc": "npm run api-schema-builder; npm run test-schema"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Escanor68/challengeUniversityManagement.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Escanor68/Challenge_Management_Node.js_Mongodb/issues"
+  },
+  "homepage": "https://github.com/Escanor68/Challenge_Management_Node.js_Mongodb#readme",
+    "dependencies": {
+    "@janiscommerce/api-schema-builder": "^1.1.1",
+    "are-objects-equals": "^1.0.1",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "express": "^4.18.0",
+    "http": "^0.0.1-security",
+    "joi": "^17.6.0",
+    "joi-objectid": "^4.0.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.5.0",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.7.4",
+    "nodemon": "^2.0.16"
+  },
+  "devDependencies": {
+    "eslint": "^8.14.0",
+    "mocha": "^9.2.2",
+    "nyc": "^15.1.0",
+    "sinon": "^13.0.2"
+  }
+}
+
